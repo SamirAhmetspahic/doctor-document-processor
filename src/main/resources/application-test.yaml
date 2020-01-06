@@ -6,7 +6,7 @@ spring:
     url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     username: sa
     password: sa
-#JPA properties
+  #JPA properties
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -15,4 +15,23 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     open-in-view: false
     generate-ddl: true
-
+#server
+local:
+  server:
+    port: 8081
+#Input resources
+file:
+  dir:
+    input: src/main/resources/nfs/input/
+    out: src/main/resources/nfs/out/
+    error: src/main/resources/nfs/error/
+    temp: src/main/resources/nfs/temp/
+    classpath-resources:
+      input:
+        xml: src/test/resources/doctor-example.xml
+        json: src/test/resources/doctor-example.json
+  path:
+    schema:
+      xsd: src/main/resources/schema/doctor.xsd
+      json: src/main/resources/schema/json-schema.json
+      schema-lang: http://www.w3.org/2001/XMLSchema

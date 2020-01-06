@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctor>
+    <patients>
+        <patient>
+            <id>10000000000000</id>
+            <first_name>John</first_name>
+            <last_name>Smith</last_name>
+            <diseases>
+                <disease>nice_to_people</disease>
+                <disease>long_legs</disease>
+            </diseases>
+        </patient>
+        <patient>
+            <id>2</id>
+            <first_name>Mary</first_name>
+            <last_name>Novak</last_name>
+            <diseases>
+                <disease>used_to_have_dredds</disease>
+                <disease>nice_to_people</disease>
+            </diseases>
+        </patient>
+        <patient>
+            <id>3</id>
+            <first_name>Alice</first_name>
+            <last_name>Woods</last_name>
+            <diseases>
+                <disease>chocaholic</disease>
+                <disease>great_haircut</disease>
+            </diseases>
+        </patient>
+    </patients>
+</doctor>

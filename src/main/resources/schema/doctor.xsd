@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="doctor">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="patients">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element maxOccurs="unbounded" name="patient">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="id" type="xsd:unsignedLong"/>
+                                        <xsd:element name="first_name" type="xsd:string"/>
+                                        <xsd:element name="last_name" type="xsd:string"/>
+                                        <xsd:element name="diseases">
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element maxOccurs="unbounded" name="disease" type="xsd:string"/>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="id" type="xsd:unsignedLong" use="required"/>
+            <xsd:attribute name="department" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
