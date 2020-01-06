@@ -1,0 +1,43 @@
+{
+  "doctor": {
+    "_id": "80000000000000",
+    "_department": "better",
+    "patients": {
+      "patient_list": [
+        {
+          "id": "10000000000000",
+          "first_name": "John",
+          "last_name": "Smith",
+          "diseases": {
+            "disease_list": [
+              "nice_to_people",
+              "long_legs"
+            ]
+          }
+        },
+        {
+          "id": "2",
+          "first_name": "Mary",
+          "last_name": "Novak",
+          "diseases": {
+            "disease_list": [
+              "used_to_have_dredds",
+              "nice_to_people"
+            ]
+          }
+        },
+        {
+          "id": "3",
+          "first_name": "Alice",
+          "last_name": "Woods",
+          "diseases": {
+            "disease_list": [
+              "chocaholic",
+              "great_haircut"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
