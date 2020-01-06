@@ -25,7 +25,7 @@ public class Doctor extends Participant
     /**
      * patientCollection - Doctor - Patient relation: OneToMany
      */
-    @OneToMany(mappedBy="doctor", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
     private List<Patient> patients;
 

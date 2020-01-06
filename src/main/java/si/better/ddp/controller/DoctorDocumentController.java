@@ -1,18 +1,28 @@
 package si.better.ddp.controller;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import si.better.ddp.constant.ApplicationConstants;
+import si.better.ddp.dto.DoctorDto;
 import si.better.ddp.model.participant.Doctor;
+import si.better.ddp.model.participant.Participant;
+import si.better.ddp.model.participant.Patient;
 import si.better.ddp.service.ParticipantService;
 
 import javax.websocket.server.PathParam;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * @author ahmetspahics
@@ -23,11 +33,14 @@ import java.util.Map;
     + ApplicationConstants.Controller.DOCTOR_REQUEST_BASE)
 public class DoctorDocumentController
 {
+    private ModelMapper modelMapper;
+
     private ParticipantService<Doctor> participantService;
 
     @Autowired
-    public DoctorDocumentController(ParticipantService<Doctor> participantService)
+    public DoctorDocumentController(ParticipantService<Doctor> participantService, ModelMapper modelMapper)
     {
+        this.modelMapper = modelMapper;
         this.participantService = participantService;
     }
 
@@ -44,7 +57,6 @@ public class DoctorDocumentController
     {
         Map<Long, String> singletonMap = Collections.singletonMap(externalId, department);
         Doctor doctor = participantService.findByExternalId(singletonMap);
-
         return new ResponseEntity<>(doctor, HttpStatus.OK);
     }
 
@@ -57,4 +69,6 @@ public class DoctorDocumentController
         List<Doctor> doctors = participantService.findAll();
         return new ResponseEntity<>(doctors, HttpStatus.OK);
     }
+
+
 }

@@ -17,7 +17,7 @@ public class ApplicationConstants
         public static final String PATIENT_REQUEST_BASE = "/patient";
         //Doctor specific GET request mappings
         public static final String DOCTOR = "{department}/{externalId}";
-        public static final String DOCTORS = "all";
+        public static final String DOCTORS = "/all";
         //Upload request mapping
         public static final String XML = "/xml";
         public static final String JSON = "/json";

@@ -8,6 +8,7 @@ import com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidatorFilter;
 import com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultXMLDocumentHandler;
 import com.sun.org.apache.xerces.internal.xni.parser.XMLDocumentSource;
 import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -124,6 +125,12 @@ public class SpringIntegrationConfiguration
         router.setChannelMapping("JSON", "json2PojoTransformerChannel");
         router.setChannelMapping("XML", "xml2PojoTransformerChannel");
         return router;
+    }
+
+    @Bean
+    public ModelMapper modelMapper()
+    {
+        return new ModelMapper();
     }
 
 }

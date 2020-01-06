@@ -15,6 +15,7 @@ import si.better.ddp.model.participant.Participant;
 import si.better.ddp.model.participant.Patient;
 import si.better.ddp.service.ParticipantService;
 
+import javax.swing.text.html.Option;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,14 +28,14 @@ import java.util.UUID;
  */
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @Import(TestAppConfiguration.class)
 public abstract class AbstractBasicIT
 {
     @Autowired
     protected ParticipantService<Participant> participantService;
 
-    protected Collection<Patient> preparePatientCollection()
+    protected List<Patient> preparePatientCollection()
     {
         Patient p1 = new Patient();
         p1.setId(UUID.randomUUID().toString().replace("-", ""));
@@ -59,7 +60,7 @@ public abstract class AbstractBasicIT
         return participantList;
     }
 
-    protected Collection<Doctor> prepareDoctorCollection()
+    protected List<Doctor> prepareDoctorCollection()
     {
         Doctor d1 = new Doctor();
         d1.setId(UUID.randomUUID().toString().replace("-", ""));
@@ -89,7 +90,8 @@ public abstract class AbstractBasicIT
         participants.addAll(patients);
         participants.addAll(doctors);
 
-        return participantService.addAll(participants);
+        List<Optional<Participant>> optionals = participantService.addAll(participants);
+        return optionals;
     }
 
     protected Patient createSinglePatient()
